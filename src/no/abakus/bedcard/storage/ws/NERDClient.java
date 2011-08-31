@@ -30,8 +30,8 @@ import org.jdom.input.SAXBuilder;
 
 public class NERDClient implements AbakusNoBedCardService {
 
-	public final static String baseUrl = "http://nerdtest.abakus.no/";
-	//public final static String baseUrl = "http://localhost:8000/";
+	public final static String baseUrl = "https://abakus.no/";
+//	public final static String baseUrl = "http://localhost:8000/";
 	
 	private String cookie = ""; 
 	
@@ -53,6 +53,7 @@ public class NERDClient implements AbakusNoBedCardService {
 	@Override
 	public boolean connect(String username, String password)
 			throws AbakusNoException {
+		
 		String data = "username="+username+"&password="+password;
 		
 		try {
@@ -178,7 +179,7 @@ public class NERDClient implements AbakusNoBedCardService {
 		}
 		try {
 			HttpURLConnection conn = 
-				getConnection("event/events/"+type.getName()+"/"+(from.getYear()+1900)+"-"+(from.getMonth()+1)+ "-" + from.getDate() 
+				getConnection("event/events/"+type.getId()+"/"+(from.getYear()+1900)+"-"+(from.getMonth()+1)+ "-" + from.getDate() 
 					+"/" +(to.getYear()+1900)+"-"+(to.getMonth()+1)+ "-" + to.getDate() + "/?format=xml");
 			
 			conn.setRequestMethod("GET");

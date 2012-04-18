@@ -106,7 +106,7 @@ public class NERDClient implements AbakusNoBedCardService {
 	}
 	
 	private EventDto parseEvent(Element djangoEvent){
-		SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 		
 		EventDto event = new EventDto();
 		
